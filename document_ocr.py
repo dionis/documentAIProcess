@@ -58,10 +58,15 @@ def get_text_from_pdf_ocr(file_path):
         return None
     
 def get_text_from_pdf_formParser(file_path):
-      endpoint = 'documentai.googleapis.com'
-      location = 'us'
-      project_id = 'ocrdocumentprocess'
-      processador_id = '9c784433e4145c9e'
+      with open('keys.yml', 'r') as file:
+                documentAi = yaml.safe_load(file)
+      print ('<=== read file configuration ===>')
+      endpoint = documentAi['google_api']['endpoint']
+      location = documentAi['google_api']['location']
+      project_id = documentAi['google_api']['project_id']
+      processador_id = documentAi['google_api']['processador_id_form']
+
+      print('Read Values ', documentAi['google_api'])
 
       try:   
           _mime_type = 'application/pdf'
