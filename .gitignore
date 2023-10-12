@@ -161,4 +161,4 @@ cython_debug/
 
 .vscode/
 keys.yml
-google_ocr.json
+#google_ocr.json
